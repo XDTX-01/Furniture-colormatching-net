@@ -5,7 +5,10 @@
 #演示网：https://dickson.ink
 
 #安装依赖
+```
 npm install
-
+```
 #运行代码
+```
 npm run serve
+```
