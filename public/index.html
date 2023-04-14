@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/dickson.icon">
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-10-y/jquery/2.1.4/jquery.js"></script>
+    <title>DICKSON-项目展示</title>
+    <style>
+        .visual-loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 999999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .visual-circle-path {
+            stroke: #0f62fe;
+            stroke-width: 2;
+            stroke-dasharray: 95, 126;
+            stroke-dashoffset: 0;
+            animation: visual-loading-dash 1.5s ease-in-out infinite;
+        }
+
+        @keyframes visual-loading-dash {
+            0% {
+                stroke-dasharray: 1, 126;
+                stroke-dashoffset: 0;
+            }
+
+            50% {
+                stroke-dasharray: 95, 126;
+                stroke-dashoffset: -31px
+            }
+
+            to {
+                stroke-dasharray: 6, 120;
+                stroke-dashoffset: -120px;
+            }
+        }
+
+        .visual-loading-svg {
+            width: 2.5em;
+            height: 2.5em;
+            max-width: 50px;
+            max-height: 50px;
+            animation: visual-loading-rotate 1.5s infinite ease-in-out;
+        }
+
+        @keyframes visual-loading-rotate {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+                Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+        <div class="visual-loading-container">
+            <svg viewBox="0 0 50 50" class="visual-loading-svg">
+                <circle cx="25" cy="25" r="20" fill="none" class="visual-circle-path"></circle>
+            </svg>
+            <p>正在努力加载页面，请耐心等候...</p>
+        </div>
+    </div>
+</body>
+
+</html>
