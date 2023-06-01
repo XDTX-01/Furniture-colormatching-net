@@ -12,3 +12,7 @@ npm install
 ```
 npm run serve
 ```
+#代码打包
+```
+npm run build
+```
