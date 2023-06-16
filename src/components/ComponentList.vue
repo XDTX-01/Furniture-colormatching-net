@@ -124,7 +124,7 @@ export default {
             name: "木饰面",
           },
           {
-            text: "HX新幻影",
+            text: "NHY新幻影",
             img: "./img/木饰面/NHY新幻影.jpg",
             name: "木饰面",
           },
