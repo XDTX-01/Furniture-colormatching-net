@@ -743,6 +743,26 @@ let newList = [
         img: "./img/其它/玫瑰金铝.jpg",
         name: "铝",
     },
+    {
+        text: "鎏金白",
+        img: "./img/其它/鎏金白.jpg",
+        名字: "大理石",
+    },
+    {
+        text: "雪山石",
+        img: "./img/其它/雪山石.jpg",
+        名字: "大理石",
+    },
+    {
+        text: "鱼肚金",
+        img: "./img/其它/鱼肚金.jpg",
+        名字: "大理石",
+    },
+    {
+        text: "鱼肚白",
+        img: "./img/其它/鱼肚白.jpg",
+        名字: "大理石",
+    }
 ]
 let newList2 = []
 newList.forEach((ele) => {
