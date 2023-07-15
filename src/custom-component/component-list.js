@@ -268,6 +268,11 @@ let newList = [
         name: "家具木面",
     },
     {
+        text: "亮光啡",
+        img: "./img/家具木面/亮光啡.jpg",
+        name: "家具木面",
+    },
+    {
         text: "亮光中灰",
         img: "./img/家具木面/亮光中灰.jpg",
         name: "家具木面",
@@ -293,6 +298,7 @@ let newList = [
         img: "./img/家具木面/粉红色.jpg",
         name: "家具木面",
     },
+
     {
         text: "HR797-02啡色",
         img: "./img/布/HR797-02啡色.jpg",
@@ -743,26 +749,27 @@ let newList = [
         img: "./img/其它/玫瑰金铝.jpg",
         name: "铝",
     },
+
     {
-        text: "鎏金白",
-        img: "./img/其它/鎏金白.jpg",
-        名字: "大理石",
-    },
-    {
-        text: "雪山石",
-        img: "./img/其它/雪山石.jpg",
-        名字: "大理石",
-    },
-    {
-        text: "鱼肚金",
+        text: "鱼肚金大理石",
         img: "./img/其它/鱼肚金.jpg",
         名字: "大理石",
     },
     {
-        text: "鱼肚白",
+        text: "鱼肚白大理石",
         img: "./img/其它/鱼肚白.jpg",
         名字: "大理石",
-    }
+    },
+    {
+        text: "鎏金白岩板",
+        img: "./img/其它/鎏金白.jpg",
+        名字: "大理石",
+    },
+    {
+        text: "雪山石岩板",
+        img: "./img/其它/雪山石.jpg",
+        名字: "大理石",
+    },
 ]
 let newList2 = []
 newList.forEach((ele) => {
