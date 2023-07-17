@@ -462,6 +462,11 @@ export default {
             img: "./img/布/V803-31米色格布.jpg",
             name: "布",
           },
+            {
+        text: "A100米格布",
+        img: "./img/布/A100米格布.jpg",
+        name: "布",
+    },
         ],
         窗帘: [
           {
@@ -527,7 +532,7 @@ export default {
 
           {
             text: "SPC-AB-09白色",
-            img: "../img/窗帘/SPC-AB-09白色.jpg",
+            img: "./img/窗帘/SPC-AB-09白色.jpg",
             name: "窗帘",
           },
           {
