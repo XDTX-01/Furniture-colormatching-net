@@ -392,6 +392,11 @@ let newList = [
         name: "布",
     },
     {
+        text: "A100米格布",
+        img: "./img/布/A100米格布.jpg",
+        name: "布",
+    },
+    {
         text: "SPC-AH-04香槟色",
         img: "./img/窗帘/SPC-AH-04香槟色.jpg",
         flag: false,
@@ -454,7 +459,7 @@ let newList = [
 
     {
         text: "SPC-AB-09白色",
-        img: "../img/窗帘/SPC-AB-09白色.jpg",
+        img: "./img/窗帘/SPC-AB-09白色.jpg",
         name: "窗帘",
     },
     {
