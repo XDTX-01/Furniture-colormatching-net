@@ -468,6 +468,11 @@ export default {
             img: "./img/布/A100米格布.jpg",
             name: "布",
           },
+          {
+            text: "20X799-10棕色条纹布",
+            img: "./img/布/20X799-10棕色条纹布.jpg",
+            name: "布",
+          },
         ],
         窗帘: [
           {
