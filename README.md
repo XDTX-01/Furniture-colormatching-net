@@ -5,7 +5,6 @@
 ### 演示网：[Furniture-colormatching-net](https://dickson.ink/)
 
 ### 安装依赖
-
 ```
 npm install
 ```
@@ -17,3 +16,6 @@ npm run serve
 ```
 npm run build
 ```
+
+署名：一个不断学习的小邓同学
+欢迎copy，可二次开发
