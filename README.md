@@ -17,5 +17,4 @@ npm run serve
 npm run build
 ```
 
-署名：一个不断学习的小邓同学
-欢迎copy，可二次开发
+署名：小邓同学
