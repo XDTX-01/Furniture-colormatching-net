@@ -34,8 +34,13 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+ dependabot/npm_and_yarn/babel/core-7.22.10
+    "@babel/core": "^7.22.10",
+    "@babel/eslint-parser": "^7.12.16",
+
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.22.10",
+ codefep
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
