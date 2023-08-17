@@ -14,20 +14,37 @@
     "src/**/*.{vue,scss,css,sass}": "stylelint --allow-empty-input"
   },
   "dependencies": {
+ dependabot/npm_and_yarn/axios-1.4.0
     "axios": "^1.4.0",
+
+    "axios": "^1.1.3",
+ dependabot/npm_and_yarn/mathjs-11.9.1
+ codefep
     "core-js": "^3.8.3",
     "element-ui": "^2.14.1",
     "html-to-image": "^1.9.0",
-    "mathjs": "^10.5.3",
+    "mathjs": "^11.9.1",
     "nanoid": "^4.0.0",
+
+    "core-js": "^3.32.0",
+    "element-ui": "^2.15.13",
+    "html-to-image": "^1.11.11",
+    "mathjs": "^10.5.3",
+    "nanoid": "^4.0.2",
+ codefep
     "vue": "^2.6.14",
-    "vue-lazyload": "^1.3.3",
-    "vue-router": "^3.5.1",
+    "vue-lazyload": "^3.0.0",
+    "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
+ dependabot/npm_and_yarn/babel/core-7.22.10
+    "@babel/core": "^7.22.10",
     "@babel/eslint-parser": "^7.12.16",
+
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.22.10",
+ codefep
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
@@ -35,19 +52,19 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-airbnb": "^6.0.0",
     "chalk": "^4.0.0",
-    "compression-webpack-plugin": "^6.1.1",
+    "compression-webpack-plugin": "^10.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-vue": "^8.0.3",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-vue": "^9.17.0",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "lint-staged": "^11.0.0",
     "postcss-html": "^1.5.0",
-    "postcss-scss": "^4.0.4",
+    "postcss-scss": "^4.0.6",
     "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
+    "sass-loader": "^13.3.2",
     "stylelint": "^14.9.1",
-    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard-scss": "^5.0.0",
     "vue-template-compiler": "^2.6.14"
   }
