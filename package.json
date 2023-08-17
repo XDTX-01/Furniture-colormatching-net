@@ -15,11 +15,19 @@
   },
   "dependencies": {
     "axios": "^1.1.3",
+ dependabot/npm_and_yarn/mathjs-11.9.1
+    "core-js": "^3.8.3",
+    "element-ui": "^2.14.1",
+    "html-to-image": "^1.9.0",
+    "mathjs": "^11.9.1",
+    "nanoid": "^4.0.0",
+
     "core-js": "^3.32.0",
     "element-ui": "^2.15.13",
     "html-to-image": "^1.11.11",
     "mathjs": "^10.5.3",
     "nanoid": "^4.0.2",
+ codefep
     "vue": "^2.6.14",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^3.6.5",
