@@ -14,8 +14,12 @@
     "src/**/*.{vue,scss,css,sass}": "stylelint --allow-empty-input"
   },
   "dependencies": {
+ dependabot/npm_and_yarn/axios-1.4.0
+    "axios": "^1.4.0",
+
     "axios": "^1.1.3",
  dependabot/npm_and_yarn/mathjs-11.9.1
+ codefep
     "core-js": "^3.8.3",
     "element-ui": "^2.14.1",
     "html-to-image": "^1.9.0",
