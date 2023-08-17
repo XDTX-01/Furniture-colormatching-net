@@ -392,6 +392,16 @@ let newList = [
         name: "布",
     },
     {
+        text: "A100米格布",
+        img: "./img/布/A100米格布.jpg",
+        name: "布",
+    },
+    {
+        text: "X799-10棕色条纹布",
+        img: "./img/布/X799-10棕色条纹布.jpg",
+        name: "布",
+    },
+    {
         text: "SPC-AH-04香槟色",
         img: "./img/窗帘/SPC-AH-04香槟色.jpg",
         flag: false,
@@ -454,7 +464,7 @@ let newList = [
 
     {
         text: "SPC-AB-09白色",
-        img: "../img/窗帘/SPC-AB-09白色.jpg",
+        img: "./img/窗帘/SPC-AB-09白色.jpg",
         name: "窗帘",
     },
     {
@@ -770,6 +780,83 @@ let newList = [
         img: "./img/其它/雪山石.jpg",
         名字: "大理石",
     },
+    {
+        text: "SPP-828漫漫油画",
+        img: "./img/画/SPP-828漫漫油画.JPG",
+        flag: false,
+        name: "画",
+    },
+    {
+        text: "SPP-824-A蓝色三元素立体画",
+        img: "./img/画/SPP-824-A蓝色三元素立体画.JPG",
+        name: "画",
+    },
+    {
+        text: "SPP-808M-C01金属线活用油画（中) 杏色",
+        img: "./img/画/SPP-808M-C01金属线活用油画（中) 杏色.JPG",
+        name: "画",
+    },
+    {
+        text: "SPP-866-B01蜂巢油画B款",
+        img: "./img/画/SPP-866-B01蜂巢油画B款.JPG",
+        name: "画",
+    },
+    {
+        text: "SPP-866-A01蜂巢油画A款",
+        img: "./img/画/SPP-866-A01蜂巢油画A款.JPG",
+        name: "画",
+    },
+    {
+        text: "SPP-829-C04粉橙色年轮画",
+        img: "./img/画/SPP-829-C04粉橙色年轮画.JPG",
+        name: "画",
+    },
+    {
+        text: "0000",
+        img: "./img/画/0000.JPG",
+        name: "画",
+    },
+    {
+        text: "0001",
+        img: "./img/画/0001.JPG",
+        name: "画",
+    },
+    {
+        text: "0002",
+        img: "./img/画/0002.JPG",
+        name: "画",
+    },
+    {
+        text: "000",
+        img: "./img/画/000.JPG",
+        name: "画",
+    },
+    {
+        text: "001",
+        img: "./img/画/001.JPG",
+        name: "画",
+    },
+    {
+        text: "002",
+        img: "./img/画/002.JPG",
+        name: "画",
+    },
+    {
+        text: "003",
+        img: "./img/画/003.JPG",
+        name: "画",
+    },
+    {
+        text: "004",
+        img: "./img/画/004.JPG",
+        name: "画",
+    },
+    {
+        text: "005",
+        img: "./img/画/005.JPG",
+        name: "画",
+    },
+
 ]
 let newList2 = []
 newList.forEach((ele) => {
