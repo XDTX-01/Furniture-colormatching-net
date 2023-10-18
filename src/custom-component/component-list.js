@@ -61,6 +61,10 @@ let newList = [
         text: "NHY新幻影",
         img: "./img/木饰面/NHY新幻影.jpg",
         name: "木饰面",
+    }, {
+        text: "WA木皮板",
+        img: "./img/木饰面/WA木皮板.jpg",
+        name: "木饰面",
     },
     {
         text: "意大利k651啡色",
@@ -156,6 +160,11 @@ let newList = [
     {
         text: "意大利H2634米白",
         img: "./img/皮/意大利皮/意大利H2634米白.jpg",
+        name: "皮",
+    },
+    {
+        text: "意大利D660",
+        img: "./img/皮/意大利皮/意大利D660.jpg",
         name: "皮",
     },
     {
