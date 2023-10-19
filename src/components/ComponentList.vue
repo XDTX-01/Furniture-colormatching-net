@@ -238,6 +238,11 @@ export default {
             name: "皮",
           },
           {
+            text: "意大利K665黑色",
+            img: "./img/皮/意大利皮/意大利K665黑色.jpg",
+            name: "皮",
+          },
+          {
             text: "巴西P403卡其色",
             img: "./img/皮/巴西皮/巴西P403卡其色.jpg",
             name: "皮",
@@ -481,6 +486,21 @@ export default {
           {
             text: "X799-10棕色条纹布",
             img: "./img/布/X799-10棕色条纹布.jpg",
+            name: "布",
+          },
+          {
+            text: "CL-21028-01米白布",
+            img: "./img/布/CL-21028-01米白布.jpg",
+            name: "布",
+          },
+          {
+            text: "DS04967-1A米白布",
+            img: "./img/布/DS04967-1A米白布.jpg",
+            name: "布",
+          },
+          {
+            text: "DS041956A浅灰布",
+            img: "./img/布/DS041956A浅灰布.jpg",
             name: "布",
           },
         ],
