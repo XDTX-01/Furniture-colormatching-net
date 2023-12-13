@@ -418,18 +418,8 @@ export default {
             name: "布",
           },
           {
-            text: "TA802-06中啡色",
-            img: "./img/布/TA802-06中啡色.jpg",
-            name: "布",
-          },
-          {
             text: "T800-10棕色净布",
             img: "./img/布/T800-10棕色净布.jpg",
-            name: "布",
-          },
-          {
-            text: "TA802-07深啡色",
-            img: "./img/布/TA802-07深啡色.jpg",
             name: "布",
           },
           {
