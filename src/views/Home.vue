@@ -24,11 +24,6 @@
         <RealTimeComponentList />
       </section>
     </main>
-    <div class="footer">
-      <a href="https://beian.miit.gov.cn/" target="_blank"
-        >湘ICP备2023005025号</a
-      >
-    </div>
   </div>
 </template>
 
@@ -206,19 +201,7 @@ export default {
       }
     }
   }
-  .footer {
-    position: absolute;
-    font-family: 幼圆;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-    font-size: 15px;
-    height: 18px;
-  }
-  a {
-    text-decoration: none;
-    color: #000000;
-  }
+ 
   .placeholder {
     text-align: center;
     color: #333;
