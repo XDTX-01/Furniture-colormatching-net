@@ -493,6 +493,22 @@ export default {
             img: "./img/布/DS041956A浅灰布.jpg",
             name: "布",
           },
+
+            {
+                text: "R806-01米色",
+                img: "./img/布/R806-01米色.jpg",
+                name: "布",
+            },
+            {
+                text: "R806-02-2灰色",
+                img: "./img/布/R806-02-2灰色.jpg",
+                name: "布",
+            },
+            {
+                text: "R8006-20-1橙黄",
+                img: "./img/布/R8006-20-1橙黄.jpg",
+                name: "布",
+            },
         ],
         窗帘: [
           {
@@ -679,6 +695,11 @@ export default {
             img: "./img/墙布挂板/BW18深灰色条纹.jpg",
             name: "墙布挂板",
           },
+            {
+                text: "BW-19浅香槟草纹",
+                img: "./img/墙布挂板/BW-19浅香槟草纹.jpg",
+                name: "墙布挂板",
+            },
         ],
         硬包: [
           {
