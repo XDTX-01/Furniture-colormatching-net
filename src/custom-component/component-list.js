@@ -66,6 +66,11 @@ let newList = [
         img: "./img/木饰面/WA木皮板.jpg",
         name: "木饰面",
     },
+     {
+            text: "浅香槟",
+            img: "./img/木饰面/浅香槟.jpg",
+            name: "木饰面",
+          },
     {
         text: "意大利k651啡色",
         flag: false,
