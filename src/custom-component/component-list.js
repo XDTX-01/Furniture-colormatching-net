@@ -414,7 +414,13 @@ let newList = [
         text: "CL-21028-01米白布",
         img: "./img/布/CL-21028-01米白布.jpg",
         name: "布",
-    }, {
+    },
+     {
+        text: "D807-01-1白色",
+        img: "./img/布/D807-01-1白色.jpg",
+        name: "布",
+    },
+    {
         text: "DS04967-1A米白布",
         img: "./img/布/DS04967-1A米白布.jpg",
         name: "布",
@@ -434,7 +440,7 @@ let newList = [
         name: "布",
     },
     {
-        text: "R8006-20-1橙黄",
+        text: "R806-20-1橙黄",
         img: "./img/布/R8006-20-1橙黄.jpg",
         name: "布",
     },
