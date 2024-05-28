@@ -791,7 +791,16 @@ let newList = [
         img: "./img/其它/幻影乳胶漆.jpg",
         name: "乳胶漆",
     },
-
+    {
+        text: "白色乳胶漆",
+        img: "./img/其它/白色乳胶漆.jpg",
+        name: "乳胶漆",
+    },
+    {
+        text: "幻影色乳胶漆",
+        img: "./img/其它/幻影色乳胶漆.jpg",
+        name: "乳胶漆",
+    },
     {
         text: "灰铝",
         img: "./img/其它/灰铝.jpg",
