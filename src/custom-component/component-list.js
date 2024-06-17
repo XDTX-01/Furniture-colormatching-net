@@ -559,6 +559,12 @@ let newList = [
         name: "窗帘",
     },
     {
+        text: "BW01三色条纹",
+        img: "./img/墙布挂板/BW01三色条纹.jpg",
+        flag: false,
+        name: "墙布挂板",
+    },
+    {
         text: "BW05白色草纹",
         img: "./img/墙布挂板/BW05白色草纹.jpg",
         flag: false,
