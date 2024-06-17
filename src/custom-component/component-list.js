@@ -441,7 +441,7 @@ let newList = [
     },
     {
         text: "R806-20-1橙黄",
-        img: "./img/布/R8006-20-1橙黄.jpg",
+        img: "./img/布/R806-20-1橙黄.jpg",
         name: "布",
     },
     {
