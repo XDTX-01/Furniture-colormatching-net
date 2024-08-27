@@ -558,6 +558,36 @@ let newList = [
         img: "./img/窗帘/SPC-AZ-23浅蓝.jpg",
         name: "窗帘",
     },
+     {
+        text: "SPC-AK-09S灰色条纹",
+        img: "./img/窗帘/SPC-AK-09S灰色条纹.jpg",
+        name: "窗帘",
+    }, 
+ {
+        text: "SPC-AK-18S白色",
+        img: "./img/窗帘/SPC-AK-18S白色.jpg",
+        name: "窗帘",
+    }, 
+ {
+        text: "SPC-AK-19S米色",
+        img: "./img/窗帘/SPC-AK-19S米色.jpg",
+        name: "窗帘",
+    }, 
+ {
+        text: "SPC-AK-20S灰色",
+        img: "./img/窗帘/SPC-AK-20S灰色.jpg",
+        name: "窗帘",
+    }, 
+ {
+        text: "SPC-AK-21S啡色",
+        img: "./img/窗帘/SPC-AK-21S啡色.jpg",
+        name: "窗帘",
+    }, 
+ {
+        text: "SPC-AK-48S杏色条纹",
+        img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
+        name: "窗帘",
+    }, 
     {
         text: "BW01三色条纹",
         img: "./img/墙布挂板/BW01三色条纹.jpg",
