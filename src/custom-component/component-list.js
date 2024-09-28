@@ -178,6 +178,21 @@ let newList = [
         name: "皮",
     },
     {
+        text: "意大利A682灰皮",
+        img: "./img/皮/意大利皮/22意大利A682灰皮.JPG",
+        name: "皮",
+    },
+    {
+        text: "意大利A683啡皮",
+        img: "./img/皮/意大利皮/23意大利A683啡皮.JPG",
+        name: "皮",
+    },
+    {
+        text: "意大利K665黑色",
+        img: "./img/皮/意大利皮/意大利K665黑色.jpg",
+        name: "皮",
+    },
+    {
         text: "巴西P403卡其色",
         img: "./img/皮/巴西皮/巴西P403卡其色.jpg",
         name: "皮",
@@ -442,6 +457,21 @@ let newList = [
     {
         text: "R806-20-1橙黄",
         img: "./img/布/R806-20-1橙黄.jpg",
+        name: "布",
+    },
+    {
+        text: "D793-16",
+        img: "./img/布/28D793-16.JPG",
+        name: "布",
+    },
+    {
+        text: "D793-412",
+        img: "./img/布/29D793-412.JPG",
+        name: "布",
+    },
+    {
+        text: "D793-1628",
+        img: "./img/布/30D793-1628.JPG",
         name: "布",
     },
     {
