@@ -179,12 +179,12 @@ let newList = [
     },
     {
         text: "意大利A682灰皮",
-        img: "./img/皮/意大利皮/22意大利A682灰皮.JPG",
+        img: "./img/皮/意大利皮/22意大利A682灰皮.jpg",
         name: "皮",
     },
     {
         text: "意大利A683啡皮",
-        img: "./img/皮/意大利皮/23意大利A683啡皮.JPG",
+        img: "./img/皮/意大利皮/23意大利A683啡皮.jpg",
         name: "皮",
     },
     {
@@ -613,6 +613,36 @@ let newList = [
         img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
         name: "窗帘",
     }, 
+    {
+        text: "30HC033-1",
+        img: "./img/窗帘/30HC033-1.jpg",
+        name: "窗帘",
+    }, 
+    {
+        text: "30HC033-2",
+        img: "./img/窗帘/30HC033-2.jpg",
+        name: "窗帘",
+    }, 
+    {
+        text: "30HC033-3",
+        img: "./img/窗帘/30HC033-3.jpg",
+        name: "窗帘",
+    },
+    {
+        text: "30HC033-4",
+        img: "./img/窗帘/30HC033-4.jpg",
+        name: "窗帘",
+    },
+    {
+        text: "30HC033-5",
+        img: "./img/窗帘/30HC033-5.jpg",
+        name: "窗帘",
+    },
+    {
+        text: "30HC033-6",
+        img: "./img/窗帘/30HC033-6.jpg",
+        name: "窗帘",
+    },
     {
         text: "BW01三色条纹",
         img: "./img/墙布挂板/BW01三色条纹.jpg",
