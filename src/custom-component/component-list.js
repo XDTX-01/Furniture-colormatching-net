@@ -615,32 +615,32 @@ let newList = [
     },
     {
         text: "HC033-1",
-        img: "./img/窗帘/30HC033-1.jpg",
+        img: "./img/窗帘/30HC033-1.JPG",
         name: "窗帘",
     },
     {
         text: "HC033-2",
-        img: "./img/窗帘/31HC033-2.jpg",
+        img: "./img/窗帘/31HC033-2.JPG",
         name: "窗帘",
     },
     {
         text: "HC033-3",
-        img: "./img/窗帘/32HC033-3.jpg",
+        img: "./img/窗帘/32HC033-3.JPG",
         name: "窗帘",
     },
     {
         text: "HC033-4",
-        img: "./img/窗帘/33HC033-4.jpg",
+        img: "./img/窗帘/33HC033-4.JPG",
         name: "窗帘",
     },
     {
         text: "HC033-5",
-        img: "./img/窗帘/33HC033-5.jpg",
+        img: "./img/窗帘/33HC033-5.JPG",
         name: "窗帘",
     },
     {
         text: "HC033-6",
-        img: "./img/窗帘/36HC033-6.jpg",
+        img: "./img/窗帘/36HC033-6.JPG",
         name: "窗帘",
     },
     {
