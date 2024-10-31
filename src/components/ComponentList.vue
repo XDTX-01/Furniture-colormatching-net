@@ -134,7 +134,7 @@ export default {
             img: "./img/木饰面/WA木皮板.jpg",
             name: "木饰面",
           },
-             {
+          {
             text: "浅香槟",
             img: "./img/木饰面/浅香槟.jpg",
             name: "木饰面",
@@ -247,16 +247,16 @@ export default {
             img: "./img/皮/意大利皮/意大利K665黑色.jpg",
             name: "皮",
           },
-             {
+          {
             text: "意大利A682灰皮",
             img: "./img/皮/意大利皮/22意大利A682灰皮.jpg",
             name: "皮",
-             },
-            {
+          },
+          {
             text: "意大利A683啡皮",
             img: "./img/皮/意大利皮/23意大利A683啡皮.jpg",
             name: "皮",
-            },
+          },
           {
             text: "巴西P403卡其色",
             img: "./img/皮/巴西皮/巴西P403卡其色.jpg",
@@ -498,7 +498,7 @@ export default {
             img: "./img/布/CL-21028-01米白布.jpg",
             name: "布",
           },
-            {
+          {
             text: "D807-01-1白色",
             img: "./img/布/D807-01-1白色.jpg",
             name: "布",
@@ -514,36 +514,36 @@ export default {
             name: "布",
           },
 
-            {
-                text: "R806-01米色",
-                img: "./img/布/R806-01米色.jpg",
-                name: "布",
-            },
-            {
-                text: "R806-02-2灰色",
-                img: "./img/布/R806-02-2灰色.jpg",
-                name: "布",
-            },
-            {
-                text: "R806-20-1橙黄",
-                img: "./img/布/R806-20-1橙黄.jpg",
-                name: "布",
-            },
-            {
-        text: "D793-16",
-        img: "./img/布/28D793-16.JPG",
-        name: "布",
-    },
-    {
-        text: "D793-412",
-        img: "./img/布/29D793-412.JPG",
-        name: "布",
-    },
-    {
-        text: "D793-1628",
-        img: "./img/布/30D793-1628.JPG",
-        name: "布",
-    },
+          {
+            text: "R806-01米色",
+            img: "./img/布/R806-01米色.jpg",
+            name: "布",
+          },
+          {
+            text: "R806-02-2灰色",
+            img: "./img/布/R806-02-2灰色.jpg",
+            name: "布",
+          },
+          {
+            text: "R806-20-1橙黄",
+            img: "./img/布/R806-20-1橙黄.jpg",
+            name: "布",
+          },
+          {
+            text: "D793-16",
+            img: "./img/布/28D793-16.JPG",
+            name: "布",
+          },
+          {
+            text: "D793-412",
+            img: "./img/布/29D793-412.JPG",
+            name: "布",
+          },
+          {
+            text: "D793-1628",
+            img: "./img/布/30D793-1628.JPG",
+            name: "布",
+          },
         ],
         窗帘: [
           {
@@ -662,69 +662,69 @@ export default {
             img: "./img/窗帘/SPC-AZ-23浅蓝.jpg",
             name: "窗帘",
           },
-             {
-        text: "SPC-AK-09S灰色条纹",
-        img: "./img/窗帘/SPC-AK-09S灰色条纹.jpg",
-        name: "窗帘",
-    }, 
- {
-        text: "SPC-AK-18S白色",
-        img: "./img/窗帘/SPC-AK-18S白色.jpg",
-        name: "窗帘",
-    }, 
- {
-        text: "SPC-AK-19S米色",
-        img: "./img/窗帘/SPC-AK-19S米色.jpg",
-        name: "窗帘",
-    }, 
- {
-        text: "SPC-AK-20S灰色",
-        img: "./img/窗帘/SPC-AK-20S灰色.jpg",
-        name: "窗帘",
-    }, 
- {
-        text: "SPC-AK-21S啡色",
-        img: "./img/窗帘/SPC-AK-21S啡色.jpg",
-        name: "窗帘",
-    }, 
- {
-        text: "SPC-AK-48S杏色条纹",
-        img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
-        name: "窗帘",
-    }, 
-            {
-        text: "30HC033-1",
-        img: "./img/窗帘/30HC033-1.jpg",
-        name: "窗帘",
-    },
-            {
-        text: "30HC033-2",
-        img: "./img/窗帘/30HC033-2.jpg",
-        name: "窗帘",
-    },
-            {
-        text: "30HC033-3",
-        img: "./img/窗帘/30HC033-3.jpg",
-        name: "窗帘",
-    },
-            {
-        text: "30HC033-4",
-        img: "./img/窗帘/30HC033-4.jpg",
-        name: "窗帘",
-    },
-            {
-        text: "30HC033-5",
-        img: "./img/窗帘/30HC033-5.jpg",
-        name: "窗帘",
-    },
-            {
-        text: "30HC033-6",
-        img: "./img/窗帘/30HC033-6.jpg",
-        name: "窗帘",
-    },    
+          {
+            text: "SPC-AK-09S灰色条纹",
+            img: "./img/窗帘/SPC-AK-09S灰色条纹.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "SPC-AK-18S白色",
+            img: "./img/窗帘/SPC-AK-18S白色.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "SPC-AK-19S米色",
+            img: "./img/窗帘/SPC-AK-19S米色.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "SPC-AK-20S灰色",
+            img: "./img/窗帘/SPC-AK-20S灰色.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "SPC-AK-21S啡色",
+            img: "./img/窗帘/SPC-AK-21S啡色.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "SPC-AK-48S杏色条纹",
+            img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-1",
+            img: "./img/窗帘/30HC033-1.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-2",
+            img: "./img/窗帘/31HC033-2.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-3",
+            img: "./img/窗帘/32HC033-3.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-4",
+            img: "./img/窗帘/33HC033-4.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-5",
+            img: "./img/窗帘/33HC033-5.jpg",
+            name: "窗帘",
+          },
+          {
+            text: "HC033-6",
+            img: "./img/窗帘/36HC033-6.jpg",
+            name: "窗帘",
+          },
         ],
         墙布挂板: [
-            {
+          {
             text: "BW01三色条纹",
             img: "./img/墙布挂板/BW01三色条纹.jpg",
             flag: false,
@@ -796,11 +796,11 @@ export default {
             img: "./img/墙布挂板/BW18深灰色条纹.jpg",
             name: "墙布挂板",
           },
-            {
-                text: "BW-19浅香槟草纹",
-                img: "./img/墙布挂板/BW-19浅香槟草纹.jpg",
-                name: "墙布挂板",
-            },
+          {
+            text: "BW-19浅香槟草纹",
+            img: "./img/墙布挂板/BW-19浅香槟草纹.jpg",
+            name: "墙布挂板",
+          },
         ],
         硬包: [
           {
@@ -990,11 +990,12 @@ export default {
             img: "./img/其它/幻影乳胶漆.jpg",
             name: "乳胶漆",
           },
-             {
+          {
             text: "白色乳胶漆",
             img: "./img/其它/白色乳胶漆.jpg",
             name: "乳胶漆",
-          }, {
+          },
+          {
             text: "幻影色乳胶漆",
             img: "./img/其它/幻影色乳胶漆.jpg",
             name: "乳胶漆",
