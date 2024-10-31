@@ -66,11 +66,11 @@ let newList = [
         img: "./img/木饰面/WA木皮板.jpg",
         name: "木饰面",
     },
-     {
-            text: "浅香槟",
-            img: "./img/木饰面/浅香槟.jpg",
-            name: "木饰面",
-          },
+    {
+        text: "浅香槟",
+        img: "./img/木饰面/浅香槟.jpg",
+        name: "木饰面",
+    },
     {
         text: "意大利k651啡色",
         flag: false,
@@ -425,7 +425,7 @@ let newList = [
         img: "./img/布/CL-21028-01米白布.jpg",
         name: "布",
     },
-     {
+    {
         text: "D807-01-1白色",
         img: "./img/布/D807-01-1白色.jpg",
         name: "布",
@@ -583,64 +583,64 @@ let newList = [
         img: "./img/窗帘/SPC-AZ-23浅蓝.jpg",
         name: "窗帘",
     },
-     {
+    {
         text: "SPC-AK-09S灰色条纹",
         img: "./img/窗帘/SPC-AK-09S灰色条纹.jpg",
         name: "窗帘",
-    }, 
- {
+    },
+    {
         text: "SPC-AK-18S白色",
         img: "./img/窗帘/SPC-AK-18S白色.jpg",
         name: "窗帘",
-    }, 
- {
+    },
+    {
         text: "SPC-AK-19S米色",
         img: "./img/窗帘/SPC-AK-19S米色.jpg",
         name: "窗帘",
-    }, 
- {
+    },
+    {
         text: "SPC-AK-20S灰色",
         img: "./img/窗帘/SPC-AK-20S灰色.jpg",
         name: "窗帘",
-    }, 
- {
+    },
+    {
         text: "SPC-AK-21S啡色",
         img: "./img/窗帘/SPC-AK-21S啡色.jpg",
         name: "窗帘",
-    }, 
- {
+    },
+    {
         text: "SPC-AK-48S杏色条纹",
         img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
         name: "窗帘",
-    }, 
+    },
     {
-        text: "30HC033-1",
+        text: "HC033-1",
         img: "./img/窗帘/30HC033-1.jpg",
         name: "窗帘",
-    }, 
+    },
     {
-        text: "30HC033-2",
-        img: "./img/窗帘/30HC033-2.jpg",
-        name: "窗帘",
-    }, 
-    {
-        text: "30HC033-3",
-        img: "./img/窗帘/30HC033-3.jpg",
+        text: "HC033-2",
+        img: "./img/窗帘/31HC033-2.jpg",
         name: "窗帘",
     },
     {
-        text: "30HC033-4",
-        img: "./img/窗帘/30HC033-4.jpg",
+        text: "HC033-3",
+        img: "./img/窗帘/32HC033-3.jpg",
         name: "窗帘",
     },
     {
-        text: "30HC033-5",
-        img: "./img/窗帘/30HC033-5.jpg",
+        text: "HC033-4",
+        img: "./img/窗帘/33HC033-4.jpg",
         name: "窗帘",
     },
     {
-        text: "30HC033-6",
-        img: "./img/窗帘/30HC033-6.jpg",
+        text: "HC033-5",
+        img: "./img/窗帘/33HC033-5.jpg",
+        name: "窗帘",
+    },
+    {
+        text: "HC033-6",
+        img: "./img/窗帘/36HC033-6.jpg",
         name: "窗帘",
     },
     {
