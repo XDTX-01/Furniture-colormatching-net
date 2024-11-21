@@ -365,11 +365,6 @@ let newList = [
         name: "布",
     },
     {
-        text: "V799-428中灰色",
-        img: "./img/布/V799-428中灰色.jpg",
-        name: "布",
-    },
-    {
         text: "V799-441粉紫色",
         img: "./img/布/V799-441粉紫色.jpg",
         name: "布",
