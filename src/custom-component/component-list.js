@@ -465,6 +465,11 @@ let newList = [
         name: "布",
     },
     {
+        text: "D807-03-3",
+        img: "./img/布/D807-03-3.jpg",
+        name: "布",
+    },
+    {
         text: "SPC-AH-04香槟色",
         img: "./img/窗帘/SPC-AH-04香槟色.jpg",
         flag: false,
