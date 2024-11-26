@@ -539,6 +539,11 @@ export default {
             img: "./img/布/30D793-1628.JPG",
             name: "布",
           },
+          {
+            text: "D807-03-3",
+            img: "./img/布/D807-03-3.jpg",
+            name: "布",
+          },
         ],
         窗帘: [
           {
