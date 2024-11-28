@@ -693,32 +693,32 @@ export default {
             name: "窗帘",
           },
                     {
-            text: "SPC-AC-01浅卡其色",
+            text: "SPC-AD-01浅卡其色",
             img: "./img/窗帘/SPC-AC-01浅卡其色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AC-02灰色",
+            text: "SPC-AD-02灰色",
             img: "./img/窗帘/SPC-AC-02灰色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AC-03卡其色",
+            text: "SPC-AD-03卡其色",
             img: "./img/窗帘/SPC-AC-03卡其色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AC-04粉蓝色",
+            text: "SPC-AD-04粉蓝色",
             img: "./img/窗帘/SPC-AC-04粉蓝色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AC-05浅紫色",
+            text: "SPC-AD-05浅紫色",
             img: "./img/窗帘/SPC-AC-05浅紫色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AC-06香槟色",
+            text: "SPC-AD-06香槟色",
             img: "./img/窗帘/SPC-AC-06香槟色.jpg",
             name: "窗帘",
           },
