@@ -692,33 +692,33 @@ export default {
             img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
             name: "窗帘",
           },
-                    {
-            text: "SPC-AD-01浅卡其色",
+          {
+            text: "SPC-AD-01钛晶灰",
             img: "./img/窗帘/SPC-AC-01浅卡其色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AD-02灰色",
+            text: "SPC-AD-02星光银",
             img: "./img/窗帘/SPC-AC-02灰色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AD-03卡其色",
+            text: "SPC-AD-03香槟金",
             img: "./img/窗帘/SPC-AC-03卡其色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AD-04粉蓝色",
+            text: "SPC-AD-04浅咖色",
             img: "./img/窗帘/SPC-AC-04粉蓝色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AD-05浅紫色",
+            text: "SPC-AD-05米卡其",
             img: "./img/窗帘/SPC-AC-05浅紫色.jpg",
             name: "窗帘",
           },
           {
-            text: "SPC-AD-06香槟色",
+            text: "SPC-AD-06浅蓝绿",
             img: "./img/窗帘/SPC-AC-06香槟色.jpg",
             name: "窗帘",
           },
