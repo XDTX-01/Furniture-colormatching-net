@@ -720,6 +720,11 @@ let newList = [
         img: "./img/墙布挂板/BW-19浅香槟草纹.jpg",
         name: "墙布挂板",
     },
+     {
+        text: "CS-823",
+        img: "./img/墙布挂板/CS-823.jpg",
+        name: "墙布挂板",
+    },
     {
         text: "古铜硬包",
 
