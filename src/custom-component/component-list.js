@@ -613,8 +613,8 @@ let newList = [
         img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
         name: "窗帘",
     },
-    {
-        text: "SPC-AD-01钛晶灰",
+        {
+        text: "SPC-AD-01米卡其",
         img: "./img/窗帘/SPC-AC-01浅卡其色.jpg",
         name: "窗帘",
     },
@@ -624,22 +624,22 @@ let newList = [
         name: "窗帘",
     },
     {
-        text: "SPC-AD-03香槟金",
+        text: "SPC-AD-03浅咖色",
         img: "./img/窗帘/SPC-AC-03卡其色.jpg",
         name: "窗帘",
     },
     {
-        text: "SPC-AD-04浅咖色",
+        text: "SPC-AD-04浅蓝绿",
         img: "./img/窗帘/SPC-AC-04粉蓝色.jpg",
         name: "窗帘",
     },
     {
-        text: "SPC-AD-05米卡其",
+        text: "SPC-AD-05钛晶灰",
         img: "./img/窗帘/SPC-AC-05浅紫色.jpg",
         name: "窗帘",
     },
     {
-        text: "SPC-AD-06浅蓝绿",
+        text: "SPC-AD-06香槟金",
         img: "./img/窗帘/SPC-AC-06香槟色.jpg",
         name: "窗帘",
     },
