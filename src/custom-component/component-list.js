@@ -721,7 +721,7 @@ let newList = [
         name: "墙布挂板",
     },
      {
-        text: "CS-823",
+        text: "BW-20",
         img: "./img/墙布挂板/CS-823.jpg",
         name: "墙布挂板",
     },
