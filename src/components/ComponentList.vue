@@ -223,8 +223,8 @@ export default {
             name: "皮",
           },
           {
-            text: "意大利A681浅卡其",
-            img: "./img/皮/意大利皮/意大利A681浅卡其.jpg",
+            text: "意大利A681卡其色",
+            img: "./img/皮/意大利皮/意大利A681卡其色.jpg",
             name: "皮",
           },
           {
