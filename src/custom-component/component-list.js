@@ -613,34 +613,34 @@ let newList = [
         img: "./img/窗帘/SPC-AK-48S杏色条纹.jpg",
         name: "窗帘",
     },
-        {
+    {
         text: "SPC-AD-01米卡其",
-        img: "./img/窗帘/SPC-AC-01浅卡其色.jpg",
+        img: "./img/窗帘/SPC-AD-01米卡其.jpg",
         name: "窗帘",
     },
     {
         text: "SPC-AD-02星光银",
-        img: "./img/窗帘/SPC-AC-02灰色.jpg",
+        img: "./img/窗帘/SPC-AD-02星光银.jpg",
         name: "窗帘",
     },
     {
         text: "SPC-AD-03浅咖色",
-        img: "./img/窗帘/SPC-AC-03卡其色.jpg",
+        img: "./img/窗帘/SPC-AD-03浅咖色.jpg",
         name: "窗帘",
     },
     {
         text: "SPC-AD-04浅蓝绿",
-        img: "./img/窗帘/SPC-AC-04粉蓝色.jpg",
+        img: "./img/窗帘/SPC-AD-04浅蓝绿.jpg",
         name: "窗帘",
     },
     {
         text: "SPC-AD-05钛晶灰",
-        img: "./img/窗帘/SPC-AC-05浅紫色.jpg",
+        img: "./img/窗帘/SPC-AD-05钛晶灰.jpg",
         name: "窗帘",
     },
     {
         text: "SPC-AD-06香槟金",
-        img: "./img/窗帘/SPC-AC-06香槟色.jpg",
+        img: "./img/窗帘/SPC-AD-06香槟金.jpg",
         name: "窗帘",
     },
     {
@@ -720,9 +720,9 @@ let newList = [
         img: "./img/墙布挂板/BW-19浅香槟草纹.jpg",
         name: "墙布挂板",
     },
-     {
+    {
         text: "BW-20",
-        img: "./img/墙布挂板/CS-823.jpg",
+        img: "./img/墙布挂板/BW-20.jpg",
         name: "墙布挂板",
     },
     {
@@ -817,12 +817,12 @@ let newList = [
     },
     {
         text: "艺术夹胶玻璃(灰丝)",
-        img: "./img/玻璃/艺术夹胶玻璃(灰丝).jpg",
+        img: "./img/玻璃/艺术夹胶玻璃灰丝.jpg",
         name: "玻璃",
     },
     {
         text: "艺术夹胶玻璃(金丝)",
-        img: "./img/玻璃/艺术夹胶玻璃(金丝).jpg",
+        img: "./img/玻璃/艺术夹胶玻璃金丝.jpg",
         name: "玻璃",
     },
     {
@@ -946,7 +946,7 @@ let newList = [
     },
     {
         text: "SPP-808M-C01金属线活用油画（中) 杏色",
-        img: "./img/画/SPP-808M-C01金属线活用油画（中) 杏色.JPG",
+        img: "./img/画/SPP-808M-C01金属线活用油画中杏色.JPG",
         name: "画",
     },
     {
@@ -966,17 +966,17 @@ let newList = [
     },
     {
         text: "我喜欢-蜂巢画(600×700)",
-        img: "./img/画/我喜欢-蜂巢画(600×700).JPG",
+        img: "./img/画/我喜欢-蜂巢画600X700.JPG",
         name: "画",
     },
     {
         text: "我喜欢-蜂巢画(400×700)",
-        img: "./img/画/我喜欢-蜂巢画(400×700).JPG",
+        img: "./img/画/我喜欢-蜂巢画400X700.JPG",
         name: "画",
     },
     {
         text: "我喜欢-蜂巢画(400×1300)",
-        img: "./img/画/我喜欢-蜂巢画(400×1300).JPG",
+        img: "./img/画/我喜欢-蜂巢画400X1300.JPG",
         name: "画",
     },
     {
