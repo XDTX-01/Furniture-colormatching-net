@@ -898,6 +898,11 @@ let newList = [
         name: "大理石",
     },
     {
+        text: "鱼肚白大理石",
+        img: "./img/其它/鱼肚白.jpg",
+        name: "大理石",
+    },
+    {
         text: "白色人造石",
         img: "./img/其它/白色人造石.jpg",
         name: "人造石",
