@@ -339,12 +339,12 @@ export default {
           },
 
           {
-            text: "亮光米",
+            text: "C亮光米",
             img: "./img/家具木面/亮光米.jpg",
             name: "家具木面",
           },
           {
-            text: "亮光白",
+            text: "T亮光白",
             img: "./img/家具木面/亮光白.jpg",
             name: "家具木面",
           },
@@ -399,6 +399,12 @@ export default {
             img: "./img/家具木面/粉红色.jpg",
             name: "家具木面",
           },
+          {
+            text: "榉木",
+            img: "./img/家具木面/榉木.jpg",
+            flag: false,
+            name: "家具木面",
+          },
         ],
         布: [
           {
@@ -427,6 +433,36 @@ export default {
             img: "./img/布/T800-04米色净布.jpg",
             name: "布",
           },
+           {
+        text: "T680-04中灰色",
+        img: "./img/布/T680-04.jpg",
+        name: "布",
+    },
+    {
+        text: "C789-91卡其色",
+        img: "./img/布/C789-91.jpg",
+        name: "布",
+    },
+    {
+        text: "Y791-05中灰色",
+        img: "./img/布/Y791-05.jpg",
+        name: "布",
+    },
+    {
+        text: "B680-03米白色",
+        img: "./img/布/B680-03.jpg",
+        name: "布",
+    },
+    {
+        text: "T680-02米白色",
+        img: "./img/布/T680-02.jpg",
+        name: "布",
+    },
+    {
+        text: "E680-14紫红色",
+        img: "./img/布/E680-14.jpg",
+        name: "布",
+    },
           {
             text: "X799-04米色条纹",
             img: "./img/布/X799-04米色条纹.jpg",
@@ -772,11 +808,6 @@ export default {
             name: "墙布挂板",
           },
           {
-            text: "BW14新杏色",
-            img: "./img/墙布挂板/BW14新杏色.jpg",
-            name: "墙布挂板",
-          },
-          {
             text: "BW15橙色",
             img: "./img/墙布挂板/BW15橙色.jpg",
             name: "墙布挂板",
@@ -965,6 +996,11 @@ export default {
             img: "./img/其它/鱼肚白.jpg",
             名字: "大理石",
           },
+            {
+            text: "峡谷啡",
+            img: "./img/其它/峡谷啡.jpg",
+            名字: "大理石",
+          },
           {
             text: "鎏金白岩板",
             img: "./img/其它/鎏金白.jpg",
@@ -975,6 +1011,7 @@ export default {
             img: "./img/其它/雪山石.jpg",
             名字: "大理石",
           },
+         
           {
             text: "白色人造石",
             img: "./img/其它/白色人造石.jpg",
