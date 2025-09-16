@@ -267,12 +267,12 @@ let newList = [
     },
 
     {
-        text: "亮光米",
+        text: "C亮光米",
         img: "./img/家具木面/亮光米.jpg",
         name: "家具木面",
     },
     {
-        text: "亮光白",
+        text: "T亮光白",
         img: "./img/家具木面/亮光白.jpg",
         name: "家具木面",
     },
@@ -299,6 +299,11 @@ let newList = [
     {
         text: "亮光啡",
         img: "./img/家具木面/亮光啡.jpg",
+        name: "家具木面",
+    },
+     {
+        text: "榉木",
+        img: "./img/家具木面/榉木.jpg",
         name: "家具木面",
     },
     {
@@ -352,6 +357,36 @@ let newList = [
     {
         text: "T800-04米色净布",
         img: "./img/布/T800-04米色净布.jpg",
+        name: "布",
+    },
+     {
+        text: "T680-04中灰色",
+        img: "./img/布/T680-04.jpg",
+        name: "布",
+    },
+    {
+        text: "C789-91卡其色",
+        img: "./img/布/C789-91.jpg",
+        name: "布",
+    },
+    {
+        text: "Y791-05中灰色",
+        img: "./img/布/Y791-05.jpg",
+        name: "布",
+    },
+    {
+        text: "B680-03米白色",
+        img: "./img/布/B680-03.jpg",
+        name: "布",
+    },
+    {
+        text: "T680-02米白色",
+        img: "./img/布/T680-02.jpg",
+        name: "布",
+    },
+    {
+        text: "E680-14紫红色",
+        img: "./img/布/E680-14.jpg",
         name: "布",
     },
     {
@@ -691,11 +726,6 @@ let newList = [
         name: "墙布挂板",
     },
     {
-        text: "BW14新杏色",
-        img: "./img/墙布挂板/BW14新杏色.jpg",
-        name: "墙布挂板",
-    },
-    {
         text: "BW15橙色",
         img: "./img/墙布挂板/BW15橙色.jpg",
         name: "墙布挂板",
@@ -919,8 +949,8 @@ let newList = [
         名字: "大理石",
     },
     {
-        text: "鱼肚白大理石",
-        img: "./img/其它/鱼肚白.jpg",
+        text: "峡谷啡",
+        img: "./img/其它/峡谷啡.jpg",
         名字: "大理石",
     },
     {
