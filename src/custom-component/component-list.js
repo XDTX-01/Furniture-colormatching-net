@@ -500,6 +500,11 @@ let newList = [
         name: "布",
     },
     {
+        text: "R806-0730",
+        img: "./img/布/31-R806-0730-tuya.jpg",
+        name: "布",
+    },
+    {
         text: "D807-03-3",
         img: "./img/布/D807-03-3.jpg",
         name: "布",
