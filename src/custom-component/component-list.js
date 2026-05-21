@@ -907,6 +907,11 @@ let newList = [
         img: "./img/其它/鱼肚白.jpg",
         name: "大理石",
     },
+  {
+        text: "巴比伦灰大理石",
+        img: "./img/其它/19巴比伦灰.jpg",
+        name: "大理石",
+    },
     {
         text: "白色人造石",
         img: "./img/其它/白色人造石.jpg",
