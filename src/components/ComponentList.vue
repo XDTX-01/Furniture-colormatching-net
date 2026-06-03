@@ -576,7 +576,7 @@ export default {
             name: "布",
           },
 {
-        text: "R806-0730",
+        text: "R806-07",
         img: "./img/布/31-R806-0730-tuya.jpg",
         name: "布",
     },
