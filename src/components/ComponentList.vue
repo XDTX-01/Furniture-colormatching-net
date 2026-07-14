@@ -580,6 +580,11 @@ export default {
         img: "./img/布/31-R806-0730-tuya.jpg",
         name: "布",
     },
+            {
+        text: "806-39",
+        img: "./img/布/806-39.jpg",
+        name: "布",
+    },
           {
             text: "D807-03-3",
             img: "./img/布/D807-03-3.jpg",
