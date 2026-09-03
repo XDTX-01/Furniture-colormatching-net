@@ -258,6 +258,11 @@ export default {
             name: "皮",
           },
           {
+            text: "意大利K668焦糖色皮",
+            img: "./img/皮/意大利皮/意大利K668焦糖色皮.jpg",
+            name: "皮",
+          },
+          {
             text: "巴西P403卡其色",
             img: "./img/皮/巴西皮/巴西P403卡其色.jpg",
             name: "皮",
