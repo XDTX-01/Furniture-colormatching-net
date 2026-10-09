@@ -62,9 +62,22 @@ export function listenGlobalKeyDown() {
         const { keyCode } = e
         if (keyCode === ctrlKey || keyCode === commandKey) {
             isCtrlOrCommandDown = true
-        } else if (keyCode == deleteKey && curComponent) {
-            store.commit('deleteComponent')
-            store.commit('recordSnapshot')
+        } else if (keyCode == deleteKey) {
+            const { multiSelectComponents } = store.state
+            // 多选时删除选中组件（跳过锁定的）；否则删除当前选中组件（锁定的不删）
+            if (multiSelectComponents && multiSelectComponents.length > 1) {
+                const deletable = multiSelectComponents.filter((c) => !c.isLock)
+                if (deletable.length) {
+                    store.commit('batchDeleteComponent', deletable)
+                }
+                store.commit('setMultiSelectComponents', [])
+                store.commit('setCurComponent', { component: null, index: null })
+                store.commit('recordSnapshot')
+                eventBus.$emit('hideArea')
+            } else if (curComponent && !curComponent.isLock) {
+                store.commit('deleteComponent')
+                store.commit('recordSnapshot')
+            }
         } else if (isCtrlOrCommandDown) {
             if (unlockMap[keyCode] && (!curComponent || !curComponent.isLock)) {
                 e.preventDefault()
@@ -109,6 +122,26 @@ function undo() {
 }
 
 function compose() {
+    const { areaData, multiSelectComponents, editor } = store.state
+    // Ctrl 点多选时 areaData.components 是空的，用 multiSelectComponents 兜底
+    // 计算这些组件的包围盒，塞进 areaData 让 compose mutation 能用
+    if (!areaData.components.length && multiSelectComponents && multiSelectComponents.length > 1) {
+        let top = Infinity, left = Infinity, right = -Infinity, bottom = -Infinity
+        const edRect = editor.getBoundingClientRect()
+        multiSelectComponents.forEach((c) => {
+            const el = document.querySelector(`#component${c.id}`)
+            if (!el) return
+            const r = el.getBoundingClientRect()
+            if (r.left - edRect.left < left) left = r.left - edRect.left
+            if (r.top - edRect.top < top) top = r.top - edRect.top
+            if (r.right - edRect.left > right) right = r.right - edRect.left
+            if (r.bottom - edRect.top > bottom) bottom = r.bottom - edRect.top
+        })
+        store.commit('setAreaData', {
+            style: { left, top, width: right - left, height: bottom - top },
+            components: multiSelectComponents,
+        })
+    }
     if (store.state.areaData.components.length) {
         store.commit('compose')
         store.commit('recordSnapshot')
