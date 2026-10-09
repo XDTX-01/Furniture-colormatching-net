@@ -21,9 +21,10 @@
       :default-style="item.style"
       :style="getShapeStyle(item.style)"
       :active="item.id === (curComponent || {}).id"
+      :multi-active="isMultiSelected(item.id)"
       :element="item"
       :index="index"
-      :class="{ lock: item.isLock }"
+      :class="{ lock: item.isLock, 'text-top': item.component === 'VText' }"
     >
       <component
         :is="item.component"
@@ -70,6 +71,13 @@
         style="pointer-events: none"
       />
     </Shape>
+    <!-- 文字工具激活时的透明遮罩：点击任意位置（含组件/文字之上）新增文字 -->
+    <div
+      v-if="isTextTool"
+      class="text-tool-overlay"
+      @mousedown="handleTextOverlayClick"
+      @contextmenu.prevent.stop="handleTextOverlayClick"
+    ></div>
     <!-- 右击菜单 -->
     <ContextMenu />
     <!-- 标线 -->
@@ -89,13 +97,15 @@ import {
   getSVGStyle,
   getCanvasStyle,
 } from "@/utils/style";
-import { $, isPreventDrop } from "@/utils/utils";
+import { $, isPreventDrop, deepCopy } from "@/utils/utils";
 import ContextMenu from "./ContextMenu";
 import MarkLine from "./MarkLine";
 import Area from "./Area";
 import eventBus from "@/utils/eventBus";
 import Grid from "./Grid";
 import { changeStyleWithScale } from "@/utils/translate";
+import generateID from "@/utils/generateID";
+import componentList from "@/custom-component/component-list";
 
 export default {
   components: { Shape, ContextMenu, MarkLine, Area, Grid },
@@ -125,6 +135,8 @@ export default {
     "curComponent",
     "canvasStyleData",
     "editor",
+    "multiSelectComponents",
+    "isTextTool",
   ]),
   mounted() {
     // 获取编辑器元素
@@ -139,6 +151,17 @@ export default {
     changeStyleWithScale,
 
     handleMouseDown(e) {
+      // 右键用于打开菜单，不参与框选/清空框选（避免右键清空 areaData 导致组合失败）
+      if (e.button !== 0) return;
+
+      // 文字工具激活时：在画布上点击即添加一个文字组件并进入编辑
+      if (this.$store.state.isTextTool) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.addTextAt(e);
+        return;
+      }
+
       // 如果没有选中组件 在画布上点击时需要调用 e.preventDefault() 防止触发 drop 事件
       if (!this.curComponent || isPreventDrop(this.curComponent.component)) {
         e.preventDefault();
@@ -202,10 +225,41 @@ export default {
       });
     },
 
+    // 文字工具：在点击位置生成一个可编辑的文字组件
+    addTextAt(e) {
+      const rectInfo = this.editor.getBoundingClientRect();
+      const template = componentList.find((c) => c.component === "VText");
+      if (!template) return;
+
+      const component = deepCopy(template);
+      component.id = generateID();
+      component.style.left = e.clientX - rectInfo.x;
+      component.style.top = e.clientY - rectInfo.y;
+
+      this.$store.commit("addComponent", { component });
+      this.$store.commit("setCurComponent", {
+        component,
+        index: this.componentData.length - 1,
+      });
+      this.$store.commit("setClickComponentStatus", true);
+      this.$store.commit("setTextTool", false);
+      this.$store.commit("recordSnapshot");
+    },
+
+    handleTextOverlayClick(e) {
+      // 文字工具激活时点击任意位置（含组件之上）新增文字
+      this.addTextAt(e);
+    },
+
+    isMultiSelected(id) {
+      return this.multiSelectComponents.some((c) => c.id === id);
+    },
+
     createGroup() {
       // 获取选中区域的组件数据
       const areaData = this.getSelectArea();
       if (areaData.length <= 1) {
+        this.$store.commit("setMultiSelectComponents", []);
         this.hideArea();
         return;
       }
@@ -256,6 +310,9 @@ export default {
         },
         components: areaData,
       });
+
+      // 框选后自动进入多选状态：拖动其中任一选中组件即可整体一起移动，无需再按组合快捷键
+      this.$store.commit("setMultiSelectComponents", areaData);
     },
 
     getSelectArea() {
@@ -295,7 +352,12 @@ export default {
         target = target.parentNode;
       }
 
-      while (!target.className.includes("editor")) {
+      while (
+        target &&
+        target.className &&
+        typeof target.className.includes === "function" &&
+        !target.className.includes("editor")
+      ) {
         left += target.offsetLeft;
         top += target.offsetTop;
         target = target.parentNode;
@@ -336,6 +398,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.text-tool-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  cursor: text;
+  background: transparent;
+}
+
 .editor {
   position: relative;
   background: #fff;
