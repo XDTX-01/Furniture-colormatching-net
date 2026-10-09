@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- CSP 安全策略：只允许本站脚本/样式/图片，禁止外链 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
     <link rel="icon" href="./WEB/dickson.icon">
-    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-10-y/jquery/2.1.4/jquery.js"></script>
     <title>DICKSON-项目展示</title>
     <style>
         .visual-loading-container {
@@ -80,8 +81,5 @@
         </div>
     </div>
 </body>
-<script>
-    !function (p) { "use strict"; !function (t) { var s = window, e = document, i = p, c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"), n = e.createElement("script"), r = e.getElementsByTagName("script")[0]; n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i.d = n; var o = function () { s.LA.ids.push(i) }; s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r) }() }({ id: "3KUbkP7hlW1p3lmh", ck: "3KUbkP7hlW1p3lmh" });
-</script>
 
 </html>
