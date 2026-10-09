@@ -62,7 +62,17 @@
             :data-index="items.text"
           >
             <div class="one_1" :data-index="items.text">
-              <img v-lazy="items.img" alt="" :data-index="items.text" />
+              <img
+                v-if="items.img"
+                v-lazy="items.img"
+                alt=""
+                :data-index="items.text"
+              />
+              <div
+                v-else
+                class="text-icon"
+                :data-index="items.text"
+              >文</div>
               <li class="one_2">{{ items.text }}</li>
             </div>
           </div>
@@ -293,6 +303,26 @@ export default {
             name: "皮",
           },
           {
+            text: "焦糖色R648（M）",
+            img: "./img/皮/巴西皮/焦糖色R648（M）.jpg",
+            name: "皮",
+          },
+          {
+            text: "酒红色R644（M）",
+            img: "./img/皮/巴西皮/酒红色R644（M）.jpg",
+            name: "皮",
+          },
+          {
+            text: "蓝色R645（M）",
+            img: "./img/皮/巴西皮/蓝色R645（M）.jpg",
+            name: "皮",
+          },
+          {
+            text: "驼棕色R640（M）",
+            img: "./img/皮/巴西皮/驼棕色R640（M）.jpg",
+            name: "皮",
+          },
+          {
             text: "意大利S11啡色",
             img: "./img/皮/硬皮/意大利S11啡色.jpg",
             name: "皮",
@@ -503,6 +533,16 @@ export default {
             name: "布",
             img: "./img/布/B804-201橙色.jpg",
           },
+          {
+            text: "H808-6A(N)酒红色",
+            name: "布",
+            img: "./img/布/H808-6A(N)酒红色.jpg",
+          },
+          {
+            text: "H808-11A(N)墨绿色",
+            name: "布",
+            img: "./img/布/H808-11A(N)墨绿色.jpg",
+          },
 
           {
             text: "D793-B2芥末黄布",
@@ -595,6 +635,7 @@ export default {
             img: "./img/布/D807-03-3.jpg",
             name: "布",
           },
+
         ],
         窗帘: [
           {
@@ -1085,8 +1126,7 @@ export default {
             img: "./img/画/SPP-828漫漫油画.JPG",
             flag: false,
             name: "画",
-          },
-          {
+          },          {
             text: "SPP-824-A蓝色三元素立体画",
             img: "./img/画/SPP-824-A蓝色三元素立体画.JPG",
             name: "画",
@@ -1241,6 +1281,19 @@ export default {
   .one_1 {
     width: 65px;
     border-radius: 5px;
+  }
+
+  .text-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
+    background: #ecf5ff;
+    border: 1px solid #d9ecff;
+    color: #3a8ee6;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .one_1 > img {
