@@ -1,4 +1,4 @@
-// 公共样式
+﻿// 公共样式
 export const commonStyle = {
     rotate: 0,
     opacity: 1,
@@ -223,6 +223,26 @@ let newList = [
         name: "皮",
     },
     {
+        text: "焦糖色R648（M）",
+        img: "./img/皮/巴西皮/焦糖色R648（M）.jpg",
+        name: "皮",
+    },
+    {
+        text: "酒红色R644（M）",
+        img: "./img/皮/巴西皮/酒红色R644（M）.jpg",
+        name: "皮",
+    },
+    {
+        text: "蓝色R645（M）",
+        img: "./img/皮/巴西皮/蓝色R645（M）.jpg",
+        name: "皮",
+    },
+    {
+        text: "驼棕色R640（M）",
+        img: "./img/皮/巴西皮/驼棕色R640（M）.jpg",
+        name: "皮",
+    },
+    {
         text: "意大利S11啡色",
         img: "./img/皮/硬皮/意大利S11啡色.jpg",
         name: "皮",
@@ -428,6 +448,16 @@ let newList = [
         text: "B804-201橙色",
         name: "布",
         img: "./img/布/B804-201橙色.jpg",
+    },
+    {
+        text: "H808-6A(N)酒红色",
+        name: "布",
+        img: "./img/布/H808-6A(N)酒红色.jpg",
+    },
+    {
+        text: "H808-11A(N)墨绿色",
+        name: "布",
+        img: "./img/布/H808-11A(N)墨绿色.jpg",
     },
 
     {
@@ -1098,5 +1128,23 @@ for (let i = 0, len = newList2.length; i < len; i++) {
         ...item
     }
 }
+
+// 文字组件：工具栏点"文字"后，在画布上点一下即可生成；双击文字进入悬浮编辑
+newList2.push({
+    ...commonAttr,
+    component: 'VText',
+    label: '文字',
+    icon: 'wenben',
+    propValue: '文字',
+    style: {
+        ...commonStyle,
+        width: 200,
+        height: 48,
+        fontSize: 32,
+        fontWeight: 400,
+        textAlign: 'center',
+        color: '#FF0000',
+    },
+})
 
 export default newList2
