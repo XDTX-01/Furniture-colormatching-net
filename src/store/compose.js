@@ -46,10 +46,17 @@ export default {
                 }
             })
 
+            // 组合后显示原组件名，而不是固定的"组合"
+            const groupLabel = areaData.components
+                .map(c => c && c.label)
+                .filter(Boolean)
+                .join('、')
+                .slice(0, 30)
+
             const groupComponent = {
                 id: generateID(),
                 component: 'Group',
-                label: '组合',
+                label: groupLabel || '组合',
                 icon: 'zuhe',
                 ...commonAttr,
                 style: {
