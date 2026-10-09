@@ -1,11 +1,14 @@
 <template>
   <div
     class="shape"
-    :class="{ active }"
+    :class="{ active, multiActive }"
     @click="selectCurComponent"
     @mousedown="handleMouseDownOnShape"
   >
-    <div class="yes">
+    <div
+      v-if="element.component !== 'VText' && element.component !== 'Group'"
+      class="yes"
+    >
       {{ element.label }}
     </div>
     <div
@@ -30,6 +33,11 @@ import { isPreventDrop } from "@/utils/utils";
 export default {
   props: {
     active: {
+      type: Boolean,
+      default: false,
+    },
+    multiActive: {
+      // 多选集合中的组件（显示选中框，但不显示操作点）
       type: Boolean,
       default: false,
     },
@@ -95,7 +103,6 @@ export default {
   },
   methods: {
     getPointList() {
-      console.log("----33-33", this.pointList2, "55-55", this.pointList);
       return this.element.component === "line-shape"
         ? this.pointList2
         : this.pointList;
@@ -220,6 +227,31 @@ export default {
     },
 
     handleMouseDownOnShape(e) {
+      // Ctrl/Command + 点击：切换该组件加入/移出多选集合，不触发拖拽
+      if (e.ctrlKey || e.metaKey) {
+        const msc = this.$store.state.multiSelectComponents || [];
+        const idx = msc.findIndex((c) => c.id === this.element.id);
+        if (idx > -1) {
+          const next = msc.slice();
+          next.splice(idx, 1);
+          this.$store.commit("setMultiSelectComponents", next);
+        } else {
+          this.$store.commit("setMultiSelectComponents", [
+            ...msc,
+            this.element,
+          ]);
+        }
+        this.$store.commit("setCurComponent", {
+          component: this.element,
+          index: this.index,
+        });
+        this.$store.commit("setInEditorStatus", true);
+        this.$store.commit("setClickComponentStatus", true);
+        e.stopPropagation();
+        e.preventDefault();
+        return;
+      }
+
       // 将当前点击组件的事件传播出去，目前的消费是 VText 组件 https://github.com/woai3c/visual-drag-demo/issues/90
       this.$nextTick(() => eventBus.$emit("componentClick"));
 
@@ -237,6 +269,30 @@ export default {
       if (this.element.isLock) return;
 
       this.cursors = this.getCursor(); // 根据旋转角度获取光标位置
+
+      // 多选一起拖动：当前组件在框选集合中时，其余选中组件保持相对位置一起移动
+      const multiSelect = this.$store.state.multiSelectComponents || [];
+      // 如果点击的是多选集合之外的组件，则取消多选，重新进入单选
+      if (!multiSelect.some((c) => c.id === this.element.id)) {
+        this.$store.commit("setMultiSelectComponents", []);
+      }
+      const isMultiDrag =
+        multiSelect.length > 1 &&
+        multiSelect.some((c) => c.id === this.element.id);
+      // 隐藏框选留下的选区框
+      if (isMultiDrag) {
+        eventBus.$emit("hideArea");
+      }
+      // 记录其余选中组件拖动前的初始位置
+      const followComponents = isMultiDrag
+        ? multiSelect
+            .filter((c) => c.id !== this.element.id)
+            .map((c) => ({
+              id: c.id,
+              top: Number(c.style.top),
+              left: Number(c.style.left),
+            }))
+        : [];
 
       const pos = { ...this.defaultStyle };
       const startY = e.clientY;
@@ -256,6 +312,18 @@ export default {
 
         // 修改当前组件样式
         this.$store.commit("setShapeStyle", pos);
+        // 让其余选中的组件以相同的位移一起移动
+        if (followComponents.length) {
+          const deltaTop = curY - startY;
+          const deltaLeft = curX - startX;
+          followComponents.forEach((f) => {
+            this.$store.commit("setComponentStyleById", {
+              id: f.id,
+              top: f.top + deltaTop,
+              left: f.left + deltaLeft,
+            });
+          });
+        }
         // 等更新完当前组件的样式并绘制到屏幕后再判断是否需要吸附
         // 如果不使用 $nextTick，吸附后将无法移动
         this.$nextTick(() => {
@@ -397,6 +465,15 @@ export default {
 .active {
   outline: 1px solid #70c0ff;
   user-select: none;
+}
+
+.multiActive {
+  outline: 1px dashed #70c0ff;
+  user-select: none;
+}
+
+.text-top {
+  z-index: 1000;
 }
 
 .shape-point {
