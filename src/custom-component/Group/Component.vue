@@ -1,17 +1,27 @@
 <template>
   <div class="group">
     <div>
-      <component
-        :is="item.component"
+      <div
         v-for="item in propValue"
-        :id="'component' + item.id"
         :key="item.id"
-        class="component"
-        :style="item.groupStyle"
-        :prop-value="item.propValue"
-        :element="item"
-        :request="item.request"
-      />
+        class="group-item"
+      >
+        <div
+          v-if="item.component !== 'VText'"
+          class="group-yes"
+          :style="nameStyle(item)"
+        >{{ item.label }}</div>
+        <component
+          :is="item.component"
+          :id="'component' + item.id"
+          class="component"
+          :class="{ 'text-top': item.component === 'VText' }"
+          :style="item.groupStyle"
+          :prop-value="item.propValue"
+          :element="item"
+          :request="item.request"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +41,16 @@ export default {
       default: () => {},
     },
   },
+  methods: {
+    // 子组件按 groupStyle 保持在各自的原位置，名字标签定位在组件左上角
+    nameStyle(item) {
+      const gs = item.groupStyle || {};
+      return {
+        left: gs.left,
+        top: gs.top,
+      };
+    },
+  },
 };
 </script>
 
@@ -43,6 +63,26 @@ export default {
 
     .component {
       position: absolute;
+    }
+
+    // 组合内的文字始终在最上层
+    .component.text-top {
+      z-index: 1000;
+    }
+
+    .group-item {
+      .group-yes {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 10px;
+        transform: translateY(-110%);
+        font: 14px/100% "幼圆";
+        color: #606266;
+        white-space: nowrap;
+        z-index: 2;
+        pointer-events: none;
+      }
     }
   }
 }
