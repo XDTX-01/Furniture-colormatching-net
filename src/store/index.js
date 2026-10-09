@@ -36,6 +36,8 @@ const data = {
         componentData: [], // 画布组件数据
         curComponent: null,
         curComponentIndex: null,
+        multiSelectComponents: [], // 框选出的多选集合，用于多选后一起拖动
+        isTextTool: false, // 文字工具是否激活：激活后在画布上点一下即可直接输入文字
         // 点击画布时是否点中组件，主要用于取消选中组件用。
         // 如果没点中组件，并且在画布空白处弹起鼠标，则取消当前组件的选中状态
         isClickComponent: false,
@@ -71,6 +73,24 @@ const data = {
             state.curComponentIndex = index
         },
 
+        // 写回文本组件的文字内容（curComponent.propValue 为字符串）
+        setPropValue(state, value) {
+            if (state.curComponent) {
+                state.curComponent.propValue = value
+            }
+        },
+
+        // 按组件 id 写入，不依赖 curComponent（点空白确认时 curComponent 可能为 null）
+        setPropValueById(state, { id, value }) {
+            const c = state.componentData.find((c) => c.id === id)
+            if (c) c.propValue = value
+        },
+
+        setShapeSingleStyleById(state, { id, key, value }) {
+            const c = state.componentData.find((c) => c.id === id)
+            if (c) c.style[key] = value
+        },
+
         setShapeStyle({ curComponent }, { top, left, width, height, rotate }) {
             if (top) curComponent.style.top = Math.round(top)
             if (left) curComponent.style.left = Math.round(left)
@@ -81,6 +101,21 @@ const data = {
 
         setShapeSingleStyle({ curComponent }, { key, value }) {
             curComponent.style[key] = value
+        },
+
+        setMultiSelectComponents(state, components) {
+            state.multiSelectComponents = components || []
+        },
+
+        setTextTool(state, status) {
+            state.isTextTool = status
+        },
+
+        setComponentStyleById(state, { id, top, left }) {
+            const component = state.componentData.find(c => c.id === id)
+            if (!component) return
+            if (top !== undefined) component.style.top = Math.round(top)
+            if (left !== undefined) component.style.left = Math.round(left)
         },
 
         setComponentData(state, componentData = []) {
