@@ -5,6 +5,12 @@
     <el-button @click="redo">前进</el-button>
 
     <el-button @click="clearCanvas">清空</el-button>
+    <el-button
+      :type="isTextTool ? 'primary' : ''"
+      @click="toggleTextTool"
+      title="点击后在画布上点一下即可输入文字"
+      >文字</el-button
+    >
     <el-button :disabled="!curComponent || curComponent.isLock" @click="lock"
       >锁定</el-button
     >
@@ -80,6 +86,7 @@ export default {
     "areaData",
     "curComponent",
     "curComponentIndex",
+    "isTextTool",
   ]),
   created() {
     eventBus.$on("preview", this.preview);
@@ -97,6 +104,11 @@ export default {
 
     lock() {
       this.$store.commit("lock");
+    },
+
+    toggleTextTool() {
+      // 切换文字工具：激活后，画布上点一下即可输入文字
+      this.$store.commit("setTextTool", !this.isTextTool);
     },
 
     unlock() {
@@ -163,6 +175,21 @@ export default {
 
     span {
       margin-left: 10px;
+    }
+  }
+
+  // 属性面板不撑高标题栏：隐藏标签头、压缩内容，点击文字/选中组件后标题栏高度保持不变
+  .el-tabs {
+    ::v-deep .el-tabs__header {
+      display: none;
+    }
+    ::v-deep .el-tabs__content {
+      padding: 0;
+      line-height: 1.4;
+    }
+    ::v-deep .el-tabs__item {
+      height: auto;
+      padding: 0;
     }
   }
 
