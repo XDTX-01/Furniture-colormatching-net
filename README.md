@@ -1,250 +1,179 @@
-# 家装配色可视化编辑器 · 开发手册（高级版）
-
-> 面向全栈工程师。本文不止告诉你"改哪"，还讲清楚**为什么这么设计、数据流怎么走、关键算法怎么算**。
+# 家装配色编辑器 · 操作手册
 
 ---
 
-## 一、系统架构总览
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    Browser (Vue 2)                   │
-├─────────────────────────────────────────────────────┤
-│  Views/Home.vue                                     │
-│    ├── Toolbar.vue          ← 顶部命令栏            │
-│    ├── ComponentList.vue    ← 左侧/右侧组件面板     │
-│    ├── CanvasAttr.vue       ← 画布属性              │
-│    └── Editor/              ← 画布渲染层            │
-│         ├── index.vue       ← 画布容器/事件总线     │
-│         ├── Shape.vue       ← 组件实例渲染          │
-│         ├── Area.vue        ← 框选选区              │
-│         ├── MarkLine.vue    ← 对齐参考线            │
-│         └── ContextMenu.vue ← 右键上下文菜单        │
-└─────────────────────────────────────────────────────┘
-                        │ commit/dispatch
-                        ▼
-┌─────────────────────────────────────────────────────┐
-│              Vuex Store（单一数据源）                │
-│  index.js ─── 核心 state: componentData[]            │
-│  ├── compose.js      组合/拆分                      │
-│  ├── snapshot.js     快照栈（undo/redo）           │
-│  ├── contextmenu.js  菜单显隐                       │
-│  ├── copy.js         复制/剪切/粘贴                 │
-│  ├── layer.js        z-index 层级                   │
-│  ├── lock.js         锁定态                         │
-│  └── animation.js    动效                           │
-└─────────────────────────────────────────────────────┘
-                        │ subscribe
-                        ▼
-┌─────────────────────────────────────────────────────┐
-│              自定义组件层 custom-component/          │
-│  VText / Group / Picture / CircleShape / svgs/      │
-│  component-list.js ← 注册表（工厂模式）              │
-└─────────────────────────────────────────────────────┘
-```
-
-**设计原则：单向数据流。**
-用户操作 → 组件捕获事件 → `commit` mutation → state 更新 → 响应式 re-render。
-不允许组件直接改 `curComponent.style.xxx`，必须走 mutation。
-
----
-
-## 二、核心数据结构
-
-### 2.1 组件实例（componentData 数组项）
-
-```js
-{
-  id: 'U1sbXq9',              // nanoid()
-  component: 'VText',         // 组件类型，对应 custom-component/index.js 映射
-  propValue: '客厅主色',       // VText=字符串，Picture=图片URL，Group=子组件数组
-  style: {
-    top: 100, left: 200,      // 绝对定位，相对画布
-    width: 300, height: 48,
-    rotate: 0,                // 旋转角度
-    color: '#FF0000',         // VText 文字色
-    fontSize: 32,             // VText 字号
-  },
-  isLock: false,              // 锁定后不可选中
-  // Group 独有：
-  propValue: [ /* 嵌套的子组件对象数组 */ ],
-}
-```
-
-### 2.2 选中态模型
-
-```js
-state = {
-  curComponent: null,           // 单选：当前选中的组件引用
-  curComponentIndex: null,      // 它在 componentData 的下标
-  multiSelectComponents: [],    // 多选：选中的组件数组
-  areaData: {                   // 框选包围盒
-    top:0, left:0, width:0, height:0
-  },
-  isTextTool: false,            // 文字工具激活态
-}
-```
-
-**关键设计**：单选和多选是互斥状态。`curComponent` 是 Shape.vue `:class` 绑定的来源；`multiSelectComponents` 是组合/批量删除的来源。
-
----
-
-## 三、关键算法
-
-### 3.1 拖拽移动（Shape.vue）
-
-```
-mousedown 记录 startX/startY + 组件原始 top/left
-   │
-mousemove 计算 deltaX/deltaY
-   │
-   ▼
-setShapeStyle({ top: origTop + deltaY, left: origLeft + deltaX })
-   │
-   ▼
-store.commit → state 更新 → Shape.vue 响应式 re-render
-```
-
-**性能要点**：mousemove 里不要做复杂计算，直接 commit；对齐线在 MarkLine.vue 里 watch `curComponent.style` 自动计算。
-
-### 3.2 组合（compose.js）
-
-```
-1. 从 multiSelectComponents 取所有组件
-2. 计算包围盒：
-   minTop    = min(各组件.top)
-   minLeft   = min(各组件.left)
-   maxBottom = max(各组件.top + height)
-   maxRight  = max(各组件.left + width)
-3. 把每个子组件的 top/left 改成相对包围盒左上角
-4. 创建一个 Group 组件，propValue = [子组件数组]
-5. 从 componentData 删掉这些子组件，push Group 进去
-```
-
-### 3.3 拆分（decomposeComponent.js）
-
-```
-1. 取出 Group 的包围盒位置（top/left）
-2. 遍历 propValue 子组件，把相对坐标还原成绝对坐标：
-   child.top += group.top
-   child.left += group.left
-3. 删掉 Group，把子组件按原顺序插回 componentData
-```
-
-### 3.4 框选（Editor/index.vue）
-
-```
-mousedown 在画布空白处 → 开始框选
-mousemove → 更新 areaData（top/left/width/height）
-mouseup   → 遍历 componentData，判断每个组件是否与 areaData 相交：
-            intersects(child, area) ⇒ 加入 multiSelectComponents
-```
-
-### 3.5 撤销/重做（snapshot.js）
-
-```
-每次 commit mutation 后 → deep clone componentData → push 进 undoStack
-                                    ↓
-undoStack 栈顶就是当前状态
-press undo → 把当前 push 进 redoStack，从 undoStack pop 一个出来恢复
-press redo → 反过来
-```
-
-**注意**：深拷贝用 `JSON.parse(JSON.stringify())`，组件数据是纯 JSON 可序列化的。
-
----
-
-## 四、组件通信方式
-
-| 场景 | 用什么 | 例子 |
-|---|---|---|
-| 父子传值 | props / $emit | Shape.vue 接收 `item` prop |
-| 跨层级共享 | Vuex | curComponent |
-| 非父子事件 | eventBus | `eventBus.$emit('componentClick')` |
-| 右键菜单 | Vuex + ContextMenu | `contextmenu.js` 存菜单坐标 |
-| 文字工具激活 | Vuex | `isTextTool` state |
-
----
-
-## 五、扩展点设计
-
-### 5.1 加新组件（工厂模式）
-
-```
-custom-component/component-list.js   ← 注册表
-         ↓ 导出 componentList 数组
-         ↓ 每项 { key, label, icon, defaultSize, defaultStyle }
-ComponentList.vue 遍历渲染
-         ↓ 拖到画布
-         ↓ componentData.push({ component: key, propValue, style })
-Shape.vue 渲染时 ↓
-custom-component/index.js 按 component 字段查表 ↓
-         ↓
-动态组件 <component :is="comp" />
-```
-
-**新增组件只需要**：建文件夹 → 在 `component-list.js` 注册 → 在 `index.js` 加映射。不用动画布逻辑。
-
-### 5.2 加新快捷键
-
-`utils/shortcutKey.js` 里加 case：
-
-```js
-case 88: // X
-  dispatch('xxxAction')
-  break
-```
-
-keyCode 查 https://keycode.info。
-
-### 5.3 加新右键菜单项
-
-`ContextMenu.vue` template 里加 `<div class="menu-item" @click="xxx">`，在 `data()` 里加 `isShowXxx` 控制显隐条件。
-
----
-
-## 六、性能与坑
-
-### 6.1 已知性能点
-- 组件上百个后，mousemove 拖拽会卡 → 考虑加 `requestAnimationFrame` 节流
-- 深拷贝 componentData 大时 snapshot 栈吃内存 → 限制栈深度（当前 50）
-
-### 6.2 常见坑
-| 坑 | 原因 | 解法 |
-|---|---|---|
-| 改完组件不更新 | 直接改 `curComponent.style`，没走 mutation | 必须 commit |
-| Group 拆分后位置错 | 子组件坐标没还原 | decomposeComponent.js 里做加法 |
-| Delete 删不掉多选 | 用 dispatch 调 action 但 mutation 是 commit | 用 commit 删除组件 |
-| 文字被组合挡住 | VText 没设 z-index | `.text-top` 设 z-index:1000 |
-| CSP 报错 | 加了新外链资源 | index.html CSP 加白名单 |
-
----
-
-## 七、关键文件速查（按改动频率排序）
-
-| 优先级 | 文件 | 改什么 |
-|---|---|---|
-| ★★★ | `src/components/Editor/Shape.vue` | 拖拽/缩放/选中/多选 |
-| ★★★ | `src/components/Editor/index.vue` | 画布鼠标事件/框选 |
-| ★★★ | `src/custom-component/VText/Component.vue` | 文字编辑 |
-| ★★☆ | `src/store/index.js` | 核心 state/mutation |
-| ★★☆ | `src/components/Editor/ContextMenu.vue` | 右键菜单 |
-| ★★☆ | `src/utils/shortcutKey.js` | 快捷键 |
-| ★☆☆ | `src/store/compose.js` | 组合/拆分 |
-| ★☆☆ | `src/custom-component/component-list.js` | 组件注册 |
-| ★☆☆ | `public/index.html` | CSP/标题/加载动画 |
-
----
-
-## 八、部署
+## 操作命令
 
 ```bash
-npm run build
-# 产物 dist/ 是纯静态文件
-# 扔 nginx / OSS / CDN，hash 路由不需要 rewrite
-# 注意 CSP meta 标签保留
+npm install        # 装依赖
+npm run serve      # 启动 → http://localhost:8080
+npm run build      # 打包 → dist/
+```
+
+> 注意：是 `npm run serve`，不是 `npm run dev`。
+
+---
+
+## 项目结构（全部文件）
+
+```
+src/
+├── main.js                          # 入口
+├── App.vue                          # 根组件
+│
+├── views/
+│   ├── Home.vue                     # 编辑页主页面
+│   └── Preview.vue                  # 预览页
+│
+├── router/
+│   └── index.js                     # 路由
+│
+├── components/                      # 通用组件
+│   ├── Toolbar.vue                 # 顶部工具栏
+│   ├── ComponentList.vue           # 右侧材质列表
+│   ├── CanvasAttr.vue               # 画布属性面板
+│   ├── AnimationList.vue            # 动效列表
+│   ├── AnimationSettingModal.vue    # 动效设置弹窗
+│   ├── EventList.vue               # 事件列表
+│   ├── RealTimeComponentList.vue   # 实时组件列表
+│   ├── Modal.vue                    # 通用弹窗
+│   │
+│   └── Editor/                      # 画布核心
+│       ├── index.vue               # 画布容器：鼠标事件/框选/文字工具
+│       ├── Shape.vue                # 单个组件：拖拽/缩放/选中/Ctrl多选
+│       ├── ComponentWrapper.vue     # 组件外层包装
+│       ├── ContextMenu.vue         # 右键菜单
+│       ├── Area.vue                 # 框选虚线框
+│       ├── MarkLine.vue             # 对齐辅助线
+│       ├── Grid.vue                 # 背景网格
+│       └── Preview.vue             # 画布内预览遮罩
+│
+├── custom-component/               # 业务组件
+│   ├── component-list.js            # ★ 组件注册清单
+│   ├── index.js                    # 组件名→组件映射
+│   │
+│   ├── VText/                       # 文字组件
+│   │   ├── Component.vue
+│   │   └── Attr.vue
+│   ├── Group/                       # 组合组件
+│   │   ├── Component.vue
+│   │   └── Attr.vue
+│   ├── Picture/                     # 图片组件
+│   │   ├── Component.vue
+│   │   └── Attr.vue
+│   ├── CircleShape/                 # 圆形组件
+│   │   ├── Component.vue
+│   │   └── Attr.vue
+│   ├── VTable/                      # 表格组件
+│   │   ├── Component.vue
+│   │   ├── Attr.vue
+│   │   └── EditTable.vue
+│   │
+│   ├── svgs/                        # SVG 图形
+│   │   ├── SVGStar/
+│   │   │   ├── Component.vue
+│   │   │   └── Attr.vue
+│   │   └── SVGTriangle/
+│   │       ├── Component.vue
+│   │       └── Attr.vue
+│   │
+│   └── common/                      # 通用属性
+│       ├── CommonAttr.vue            # 通用属性面板
+│       ├── Linkage.vue              # 联动
+│       ├── OnEvent.vue               # 事件
+│       └── Request.vue               # 请求
+│
+├── store/                          # Vuex
+│   ├── index.js                     # ★ 主数据/选中态/画布尺寸
+│   ├── compose.js                   # 组合/拆分
+│   ├── contextmenu.js               # 右键菜单显隐
+│   ├── copy.js                      # 复制/剪切/粘贴
+│   ├── layer.js                     # 置顶/置底
+│   ├── lock.js                      # 锁定
+│   ├── snapshot.js                  # 撤销/重做
+│   ├── animation.js                 # 动效
+│   └── event.js                     # 事件
+│
+├── styles/                         # 样式
+│   ├── animate.scss                 # animate.css 动画库
+│   ├── global.scss                  # 全局样式
+│   ├── reset.css                    # 重置样式
+│   └── variable.scss                # CSS 变量
+│
+└── utils/                          # 工具函数
+    ├── shortcutKey.js               # ★ 快捷键
+    ├── decomposeComponent.js        # 拆分还原
+    ├── eventBus.js                  # 事件总线
+    ├── generateID.js                # 生成 ID
+    ├── calculateComponentPositonAndSize.js  # 计算包围盒
+    ├── changeComponentsSizeWithScale.js    # 缩放
+    ├── animationClassData.js        # 动效数据
+    ├── runAnimation.js              # 跑动效
+    ├── events.js                    # 事件
+    ├── style.js                     # 样式处理
+    ├── attr.js                      # 属性处理
+    ├── request.js                   # 请求
+    ├── toast.js                     # 提示
+    ├── translate.js                 # 翻译
+    └── utils.js                     # 通用工具
+
+public/
+└── index.html                      # ★ 标题/CSP/加载动画
 ```
 
 ---
 
-*架构版本：v2.0 · 2026-10-09*
+## 哪里改
+
+| 你要做什么 | 改哪个文件 |
+|---|---|
+| **标题/端口/CSP** | |
+| 改网页标题 | `public/index.html` |
+| 改端口 | `vue.config.js` |
+| 加 CSP 白名单 | `public/index.html` |
+| 改加载动画 | `public/index.html` |
+| **画布** | |
+| 改画布尺寸 | `store/index.js` 的 canvasStyleData |
+| 改画布背景色 | `store/index.js` |
+| 改鼠标点选逻辑 | `components/Editor/index.vue` |
+| 改框选逻辑 | `components/Editor/index.vue` |
+| 改文字工具（点画布加文字） | `components/Editor/index.vue` |
+| 改背景网格 | `components/Editor/Grid.vue` |
+| 改对齐辅助线 | `components/Editor/MarkLine.vue` |
+| **组件拖拽** | |
+| 改拖拽移动 | `components/Editor/Shape.vue` |
+| 改控制点缩放 | `components/Editor/Shape.vue` |
+| 改选中样式 | `components/Editor/Shape.vue` |
+| 改 Ctrl 多选 | `components/Editor/Shape.vue` |
+| **右键菜单** | |
+| 加/删菜单项 | `components/Editor/ContextMenu.vue` |
+| 改菜单位置 | `store/contextmenu.js` |
+| **文字组件** | |
+| 改文字默认颜色 | `custom-component/component-list.js` |
+| 改文字默认字号 | `custom-component/component-list.js` |
+| 改常用色（红黄绿蓝） | `custom-component/VText/Component.vue` |
+| 改右键编辑框样式 | `custom-component/VText/Component.vue` |
+| 改文字属性面板 | `custom-component/VText/Attr.vue` |
+| **组合** | |
+| 改组合逻辑 | `store/compose.js` |
+| 改拆分逻辑 | `utils/decomposeComponent.js` |
+| 改组合样式 | `custom-component/Group/Component.vue` |
+| **快捷键** | |
+| 改 Ctrl+G 组合 | `utils/shortcutKey.js` |
+| 改 Ctrl+B 拆分 | `utils/shortcutKey.js` |
+| 改 Delete 删除 | `utils/shortcutKey.js` |
+| 加快捷键 | `utils/shortcutKey.js` |
+| **其他** | |
+| 加顶部按钮 | `components/Toolbar.vue` |
+| 改右侧材质列表 | `components/ComponentList.vue` |
+| 改画布属性面板 | `components/CanvasAttr.vue` |
+| 改动效列表 | `components/AnimationList.vue` |
+| 改撤销/重做 | `store/snapshot.js` |
+| 改锁定 | `store/lock.js` |
+| 改置顶/置底 | `store/layer.js` |
+| 改复制粘贴 | `store/copy.js` |
+| 加新材质组件 | `custom-component/component-list.js` |
+| 改全局样式 | `styles/global.scss` |
+| 改 CSS 变量 | `styles/variable.scss` |
+
+---
