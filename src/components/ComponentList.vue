@@ -303,8 +303,18 @@ export default {
             name: "皮",
           },
           {
+            text: "灰色R649（M）",
+            img: "./img/皮/巴西皮/灰色R649（M）.jpg",
+            name: "皮",
+          },
+          {
             text: "焦糖色R648（M）",
             img: "./img/皮/巴西皮/焦糖色R648（M）.jpg",
+            name: "皮",
+          },
+          {
+            text: "蓝色R645（M）",
+            img: "./img/皮/巴西皮/蓝色R645（M）.jpg",
             name: "皮",
           },
           {
@@ -313,8 +323,13 @@ export default {
             name: "皮",
           },
           {
-            text: "蓝色R645（M）",
-            img: "./img/皮/巴西皮/蓝色R645（M）.jpg",
+            text: "卡其色R642（M）",
+            img: "./img/皮/巴西皮/卡其色R642（M）.jpg",
+            name: "皮",
+          },
+          {
+            text: "啡色R641（M）",
+            img: "./img/皮/巴西皮/啡色R641（M）.jpg",
             name: "皮",
           },
           {
