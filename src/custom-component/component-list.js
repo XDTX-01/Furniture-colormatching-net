@@ -254,7 +254,7 @@ let newList = [
         name: "皮",
     },
     {
-        text: "驼棕色R640（M）",
+        text: "驼棕色R620（M）",
         img: "./img/皮/巴西皮/驼棕色R640（M）.jpg",
         name: "皮",
     },
