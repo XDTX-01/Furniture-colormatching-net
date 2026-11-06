@@ -466,12 +466,12 @@ let newList = [
         img: "./img/布/B804-201橙色.jpg",
     },
     {
-        text: "H808-6A(N)酒红色",
+        text: "H808-11A(N)酒红色",
         name: "布",
         img: "./img/布/H808-6A(N)酒红色.jpg",
     },
     {
-        text: "H808-11A(N)墨绿色",
+        text: "H808-6A(N)墨绿色",
         name: "布",
         img: "./img/布/H808-11A(N)墨绿色.jpg",
     },
