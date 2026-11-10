@@ -844,11 +844,6 @@ export default {
             name: "墙布挂板",
           },
           {
-            text: "BW06十字深杏",
-            img: "./img/墙布挂板/BW06十字深杏.jpg",
-            name: "墙布挂板",
-          },
-          {
             text: "BW07米色格纹",
             img: "./img/墙布挂板/BW07米色格纹.jpg",
             name: "墙布挂板",
